@@ -8,12 +8,18 @@
   "scripts": {
     "dev": "concurrently 'ts-node server/index.ts' 'parcel client/index.html'"
   },
+  "jest": {
+    "preset": "ts-jest"
+  },
   "devDependencies": {
     "@types/express": "^4.17.6",
+    "@types/jest": "^25.2.1",
     "@types/node": "^13.11.1",
     "@types/ws": "^7.2.3",
     "concurrently": "^5.1.0",
+    "jest": "^25.3.0",
     "parcel-bundler": "^1.12.4",
+    "ts-jest": "^25.3.1",
     "ts-node": "^8.8.2",
     "typescript": "^3.8.3"
   },
