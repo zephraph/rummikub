@@ -31,15 +31,11 @@ export class Board {
     return tiles;
   }
 
-  public pickFromPile(count: number): TileType[] {
-    let pickedTiles = new Array(count);
+  public takeTile(count: number): TileType[] {
+    let tile = new Array(count);
     for (let i = 0; i < count; i++) {
-      if (this.pile.length < 1) {
-        throw new Error("No more tiles left in the pile");
-      } else {
-        pickedTiles.push(this.pile.shift());
-      }
+      tile.push(this.pile.shift());
     }
-    return pickedTiles;
+    return tile;
   }
 }

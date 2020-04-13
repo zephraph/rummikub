@@ -10,9 +10,9 @@ enum GameState {
 
 export class Game {
   private state: GameState;
-  private players: Player[];
   private board: Board;
-  private activePlayer: number;
+  public players: Player[];
+  public activePlayer: number;
 
   constructor() {
     this.state = GameState.WAITING;
@@ -26,15 +26,15 @@ export class Game {
       switch (this.state) {
         case GameState.WAITING:
           // when new player detected
-          this.players.push(new Player());
+          //this.players.push(new Player());
           break;
         case GameState.READY:
           for (const player of this.players) {
-            player.distributeTiles(this.board.pickFromPile(14));
+            player.distributeTiles(this.board.takeTile(14));
           }
           break;
         case GameState.ACTIVE:
-          this.setActivePlayer();
+          const player = this.setActivePlayer();
           break;
         default:
           throw new Error("Unknown game state");
